@@ -1,8 +1,10 @@
 class Solution {
     public String reverseWords(String s) {
-        String reversed = Arrays.stream(s.split(" "))
-    .map(word -> new StringBuilder(word).reverse())
-    .collect(Collectors.joining(" "));
-    return reversed;
+        String w[]=s.split(" ");
+        StringBuilder str=new StringBuilder();
+        for(String s1:w){
+            str.append(new StringBuilder(s1).reverse()).append(" ");
+        }
+        return str.toString().trim();
     }
 }
