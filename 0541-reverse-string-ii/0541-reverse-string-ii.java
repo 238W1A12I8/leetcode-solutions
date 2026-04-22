@@ -4,7 +4,7 @@ class Solution {
         int n=s.length();
         for(int i=0;i<n;i+=2*k){
             int left=i;
-            int right=Math.min(i+k-1,n-1);
+            int right=i+k-1;
             while(left<right){
                 char temp=ch[left];
                 ch[left]=ch[right];
