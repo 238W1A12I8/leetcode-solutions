@@ -19,11 +19,6 @@ class Solution {
                 fre[gg]--;
             }
         }
-        StringBuilder str=new  StringBuilder();
-        str.append(b);
-        str.append('A');
-        str.append(c);
-        str.append('B');
-        return str.toString();
+        return b+"A"+c+"B";
     }
 }
