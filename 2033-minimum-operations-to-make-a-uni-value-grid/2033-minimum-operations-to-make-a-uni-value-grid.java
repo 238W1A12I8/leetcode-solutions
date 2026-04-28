@@ -1,9 +1,9 @@
 class Solution {
     public int minOperations(int[][] grid, int x) {
         List<Integer> list=new ArrayList<>();
-        for(int[] r:grid){
-            for(int num:r){
-                list.add(num);
+        for(int i=0;i<grid.length;i++){
+            for(int j=0;j<grid[0].length;j++){
+                list.add(grid[i][j]);
             }
         }
         int m=list.get(0)%x;
