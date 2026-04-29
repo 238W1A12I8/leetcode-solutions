@@ -1,19 +1,21 @@
 class Solution {
     public int longestSubstring(String s, int k) {
+        return dnc(s,0,s.length(),k);
+    }
+    public int dnc(String s,int st,int end,int k){
+        if(end-st<k) return 0;
         int n=s.length();
-        Map<Character,Integer> map=new HashMap<>();
-        for(char ch:s.toCharArray()){
-            map.put(ch,map.getOrDefault(ch,0)+1);
+        int freq[]=new int[26];
+        for(int i=st;i<end;i++){
+            freq[s.charAt(i)-'a']++;
         }
-        for(int i=0;i<n;i++){
-            char ch=s.charAt(i);
-            if(map.get(ch)<k)
-            {
-                int left=longestSubstring(s.substring(0,i),k);
-                int rig=longestSubstring(s.substring(i+1),k);
-                return Math.max(left,rig);
+        for(int i=st;i<end;i++){
+            if(freq[s.charAt(i)-'a']<k){
+                int j=i+1;
+                while(j<end && freq[s.charAt(i)-'a']<k) j++;
+                return Math.max(dnc(s,st,i,k),dnc(s,j,end,k));
             }
         }
-        return s.length();
+        return end-st;
     }
 }
