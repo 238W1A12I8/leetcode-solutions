@@ -12,7 +12,7 @@ class Solution {
         for(int i=st;i<end;i++){
             if(freq[s.charAt(i)-'a']<k){
                 int j=i+1;
-                while(j<end && freq[s.charAt(i)-'a']<k) j++;
+                while(j<end && freq[s.charAt(j)-'a']<k) j++;
                 return Math.max(dnc(s,st,i,k),dnc(s,j,end,k));
             }
         }
