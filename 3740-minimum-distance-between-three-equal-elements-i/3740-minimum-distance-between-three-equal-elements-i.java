@@ -5,9 +5,13 @@ class Solution {
         if(n<3) return -1;
         for(int i=0;i<n;i++){
             for(int j=i+1;j<n;j++){
+                if(nums[i]!=nums[j]){
+                    continue;
+                }
                 for(int k=j+1;k<n;k++){
-                    if(nums[i]==nums[j] && nums[j]==nums[k]){
+                    if(nums[j]==nums[k]){
                         ans=Math.min(ans,2*(k-i));
+                        break;
                     }
                 }
             }
