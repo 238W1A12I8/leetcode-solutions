@@ -3,25 +3,26 @@ class Solution {
     public int evalRPN(String[] tokens) {
         int x, y;
         Stack<Integer> st = new Stack<>();
-        for (String s : tokens) {
-            if (s.equals("+")) {
-                st.push(st.pop() + st.pop());
-            } 
-            else if (s.equals("/")) {
-                y = st.pop();
-                x = st.pop();
-                st.push(x / y);
-            } 
-            else if (s.equals("*")) {
-                st.push(st.pop() * st.pop());
-            } 
-            else if (s.equals("-")) {
-                y = st.pop();
-                x = st.pop();
-                st.push(x - y);
-            } 
-            else {
-                st.push(Integer.parseInt(s));
+            for (String token : tokens) {
+            switch (token) {
+                case "+":
+                    st.push(st.pop() + st.pop());
+                    break;
+                case "-":
+                    int b = st.pop();
+                    int a = st.pop();
+                    st.push(a - b);
+                    break;
+                case "*":
+                    st.push(st.pop() * st.pop());
+                    break;
+                case "/":
+                    b = st.pop();
+                    a = st.pop();
+                    st.push(a / b);
+                    break;
+                default:
+                    st.push(Integer.parseInt(token));
             }
         }
         return st.pop();
