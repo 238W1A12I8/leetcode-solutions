@@ -1,7 +1,13 @@
 class Solution {
     public double angleClock(int hour, int minutes) {
-        double n=hour+minutes/60.0;
-        double n1=(11.0*n)%12.0;
-        return Math.min(n1,12.0-n1)*30.0;
+        double angMin = 360/(60/(double)(minutes));
+        System.out.println(angMin);
+        double angHour = 30*(((double)(hour)%12)+((double)(minutes)/60));
+        System.out.println(angHour);
+        double angle = Math.abs(angMin-angHour);
+        if(360-angle<angle)
+            return 360-angle;
+        else
+            return angle;
     }
 }
