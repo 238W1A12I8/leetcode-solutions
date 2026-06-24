@@ -5,17 +5,15 @@ class Solution {
         List<Integer> list=new ArrayList<>();
         int count=1;
         for(int i=0;i<n;i++){
-            while(count<nums[i]){
-                list.add(count);
-                count++;
-            }
-            if(nums[i]==count){
-                count+=1;
+            int idx=Math.abs(nums[i])-1;
+            if(nums[idx]>0){
+                nums[idx]=-nums[idx];
             }
         }
-        while(count<=n){
-            list.add(count);
-            count++;
+        for(int i=0;i<n;i++){
+            if(nums[i]>0){
+                list.add(i+1);
+            }
         }
         return list;
     }
