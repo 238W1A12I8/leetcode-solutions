@@ -1,19 +1,12 @@
 class Solution {
     public int maxProduct(int n) {
-        if(n==0) return 0;
-        int max1=0;
-        int max2=0;
+        PriorityQueue<Integer> pq=new PriorityQueue<>(Collections.reverseOrder());
         while(n>0){
-            int digit=n%10;
-            if(digit>=max1){
-                max2=max1;
-                max1=digit;
-            }
-            else if(digit>max2){
-                max2=digit;
-            }
+            pq.offer(n%10);
             n=n/10;
         }
+        int max1=pq.poll();
+        int max2=pq.poll();
         return max1*max2;
     }
 }
