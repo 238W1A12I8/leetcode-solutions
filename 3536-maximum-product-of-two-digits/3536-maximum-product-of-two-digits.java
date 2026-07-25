@@ -1,12 +1,13 @@
 class Solution {
     public int maxProduct(int n) {
-        PriorityQueue<Integer> pq=new PriorityQueue<>(Collections.reverseOrder());
+       ArrayList<Integer> l1= new ArrayList<>();
         while(n>0){
-            pq.offer(n%10);
+           int rem=n%10;
             n=n/10;
+            l1.add(rem);
         }
-        int max1=pq.poll();
-        int max2=pq.poll();
-        return max1*max2;
+        Collections.sort(l1);
+        int x= l1.size();
+        return l1.get(x-1)*l1.get(x-2);
     }
 }
