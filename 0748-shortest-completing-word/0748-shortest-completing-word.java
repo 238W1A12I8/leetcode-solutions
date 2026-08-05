@@ -19,7 +19,7 @@ class Solution {
                 }
             }
             if(map2.isEmpty()){
-                if(str.equals("") || word.length()<str.length()){
+                if(str.equals("")||word.length()<str.length()){
                     str=word;
                 }
             }
