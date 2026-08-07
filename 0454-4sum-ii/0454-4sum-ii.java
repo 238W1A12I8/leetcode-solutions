@@ -14,8 +14,8 @@ class Solution {
             }
         }
         int count=0;
-        for(int k=0;k<nums1.length;k++){
-            for(int l=0;l<nums3.length;l++){
+        for(int k=0;k<nums3.length;k++){
+            for(int l=0;l<nums4.length;l++){
                 int sum1=-(nums3[k]+nums4[l]);
                 if(map.containsKey(sum1)){
                     count+=map.get(sum1);
