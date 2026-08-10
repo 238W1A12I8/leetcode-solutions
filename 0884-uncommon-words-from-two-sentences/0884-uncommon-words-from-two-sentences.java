@@ -15,6 +15,6 @@ class Solution {
                 list.add(key);
             }
         }
-        return list.toArray(new String[0]);
+        return list.toArray(new String[list.size()]);
     }
 }
